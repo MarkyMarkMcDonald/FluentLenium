@@ -133,10 +133,18 @@ public class FluentWebElementTest {
         fluentWebElementAssert.hasClass("yolo");
     }
 
-    @Test
-    public void testHasTextOk() throws Exception {
-        when(fluentWebElement.getText()).thenReturn("There is a 5% increase");
-        fluentWebElementAssert.hasText("There is a 5% increase");
+    @Test(expected = AssertionError.class)
+    public void testHasTextWithSpecialCharactersInElement() throws Exception {
+        String textWithStringFormatError = "SPARQS14 % AAPL";
+        when(fluentWebElement.getText()).thenReturn(textWithStringFormatError);
+        fluentWebElementAssert.hasText("THIS_DOES_NOT_MATCH");
+    }
+
+    @Test(expected = AssertionError.class)
+    public void testHasTextWithSpecialCharactersInAssertion() throws Exception {
+        String textWithStringFormatError = "SPARQS14 % AAPL";
+        when(fluentWebElement.getText()).thenReturn("ELEMENT_NOT_MATCHING");
+        fluentWebElementAssert.hasText(textWithStringFormatError);
     }
 
     @Test

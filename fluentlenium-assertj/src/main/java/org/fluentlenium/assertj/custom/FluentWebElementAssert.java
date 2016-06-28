@@ -110,8 +110,7 @@ public class FluentWebElementAssert extends AbstractAssert<FluentWebElementAsser
      */
     public FluentWebElementAssert hasText(String textToFind) {
         if (!actual.getText().contains(textToFind)) {
-            super.failWithMessage("The element does not contain the text: " + textToFind + " . Actual text found : " + actual.getText());
-
+            super.failWithMessage("The element does not contain the text: %s . Actual text found : %s", textToFind, actual.getText());
         }
 
         return this;

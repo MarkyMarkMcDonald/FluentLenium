@@ -110,7 +110,7 @@ public class FluentWebElementAssert extends AbstractAssert<FluentWebElementAsser
      */
     public FluentWebElementAssert hasText(String textToFind) {
         if (!actual.getText().contains(textToFind)) {
-            super.failWithMessage("The element does not contain the text: %s . Actual text found : %s", textToFind, actual.getText());
+            super.failWithMessage("The element does not contain the text: %s . Actual text found: %s", textToFind, actual.getText());
         }
 
         return this;
@@ -123,7 +123,7 @@ public class FluentWebElementAssert extends AbstractAssert<FluentWebElementAsser
      */
     public FluentWebElementAssert hasTextMatching(String regexToBeMatched) {
         if (!actual.getText().matches(regexToBeMatched)) {
-            super.failWithMessage("The element does not match the regex: " + regexToBeMatched + " . Actual text found : " + actual.getText());
+            super.failWithMessage("The element does not match the regex: %s. Actual text found: %s", regexToBeMatched, actual.getText());
 
         }
 
@@ -159,7 +159,7 @@ public class FluentWebElementAssert extends AbstractAssert<FluentWebElementAsser
      */
     public FluentWebElementAssert hasId(String id) {
         if (!actual.getId().equals(id)) {
-            super.failWithMessage("The element does not have the id: " + id + " . Actual id found : " + actual.getId());
+            super.failWithMessage("The element does not have the id: %s. Actual id found: %s", id, actual.getId());
         }
         return this;
     }
@@ -172,7 +172,7 @@ public class FluentWebElementAssert extends AbstractAssert<FluentWebElementAsser
      */
     public FluentWebElementAssert hasClass(String classToFind) {
         if (!getClasses().contains(classToFind)) {
-            super.failWithMessage("The element does not have the class: " + classToFind + " . Actual class found : " + actual.getAttribute("class"));
+            super.failWithMessage("The element does not have the class: %s. Actual class found : %s", classToFind, actual.getAttribute("class"));
         }
         return this;
     }

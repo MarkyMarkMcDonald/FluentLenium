@@ -23,7 +23,7 @@ public class FluentListAssert extends AbstractAssert<FluentListAssert, FluentLis
                 return this;
             }
         }
-        super.failWithMessage("No selected elements contains text: " + textToFind + " . Actual texts found : " + actualTexts);
+        super.failWithMessage("No selected elements contains text: %s. Actual texts found : %s", textToFind, actualTexts);
         return this;
     }
 
@@ -36,7 +36,7 @@ public class FluentListAssert extends AbstractAssert<FluentListAssert, FluentLis
         List<String> actualTexts = actual.getTexts();
         for (String text : actualTexts) {
             if (text.contains(textToFind)) {
-                super.failWithMessage("At least one selected elements contains text: " + textToFind + " . Actual texts found : " + actualTexts);
+                super.failWithMessage("At least one selected elements contains text: %s. Actual texts found : %s", textToFind, actualTexts);
             }
         }
         return this;
@@ -44,7 +44,7 @@ public class FluentListAssert extends AbstractAssert<FluentListAssert, FluentLis
 
     public FluentListAssert hasSize(int expectedSize) {
         if (actual.size() != expectedSize) {
-            super.failWithMessage("Expected size: " + expectedSize + ". Actual size: " + actual.size() + ".");
+            super.failWithMessage("Expected size: %s. Actual size: %s.", expectedSize, actual.size());
         }
         return this;
     }
@@ -62,7 +62,7 @@ public class FluentListAssert extends AbstractAssert<FluentListAssert, FluentLis
     public FluentListAssert hasId(String idToFind) {
         List actualIds = actual.getIds();
         if (!actualIds.contains(idToFind)) {
-            super.failWithMessage("No selected elements has id: " + idToFind + " . Actual texts found : " + actualIds);
+            super.failWithMessage("No selected elements has id: %s. Actual texts found : %s", idToFind, actualIds);
         }
         return this;
     }
@@ -88,7 +88,7 @@ public class FluentListAssert extends AbstractAssert<FluentListAssert, FluentLis
             sb.append(classFromElement);
         }
 
-        super.failWithMessage("No selected elements has class: " + classToFind + " . Actual classes found : " + sb.toString());
+        super.failWithMessage("No selected elements has class: %s. Actual classes found : %s", classToFind, sb.toString());
         return this;
     }
 
